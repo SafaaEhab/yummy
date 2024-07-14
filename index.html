@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <!-- Icon -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <!-- Font Awesom Icon -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-black">
+    <!-- <div class="loader position-fixed top-0 bottom-0 start-0 end-0 bg-danger d-flex justify-content-center align-items-center z-3"></div> -->
+
+    <!-- ============== Side Nav Menu ============== -->
+    <nav class="d-flex position-fixed top-0 bottom-0 z-3 bg-danger">
+        <div class="nav-links p-4 bg-black h-100 d-flex flex-column justify-content-between text-white">
+            <ul class="overflow-hidden">
+                <li class="mb-3">Search</li>
+                <li class="mb-3">Categories</li>
+                <li class="mb-3">Area</li>
+                <li class="mb-3">Ingredients</li>
+                <li class="mb-3">Contact Us</li>
+            </ul>
+
+            <div class="ul-icon">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-solid fa-globe"></i>
+                <p>Copyright Â© 2019 All Rights <br>Reserved.</p>
+            </div>
+        </div>
+
+        <div class="nav-icons p-4 bg-white h-100 d-flex flex-column justify-content-between align-items-center">
+            <img src="images/logo.png" alt="logo">
+
+            <i id="btn-open" class="fa-solid fa-bars fs-2"></i>
+
+            <div>
+                <i class="fa-solid fa-globe d-block"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============== Random Meals ============== -->
+    <section class="p-5" id="main">
+        <div class="position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2" id="loading">
+            <span class="loader" id="mainLoader"></span>
+        </div>
+
+        <div class="container">
+            <div class="row g-4 ps-5" id="meals"></div>
+        </div>
+    </section>
+
+    <!-- ============== Search ============== -->
+    <section class="p-5 d-none" id="search">
+        <div class="comtainer px-5">
+            <div class="row w-75 mx-auto mb-5">
+                <div class="col-md-6 mb-3">
+                    <input class="form-control bg-black text-white" type="text" id="searchByName"
+                        placeholder="Search By Name">
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control bg-black text-white" type="text" id="searchByFirstLetter"
+                        placeholder="Search By First Letter" maxlength="1">
+                </div>
+            </div>
+
+            <div class="row g-4" id="searchedMeals"></div>
+
+            <div
+                class="position-fixed top-15 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2 d-none" id="searchLoader">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Categories ============== -->
+    <section class="p-5 d-none" id="categories">
+        <div class="position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2" id="categoriesLoader">
+            <span class="loader"></span>
+        </div>
+        <div class="container">
+            <div class="row g-4 ps-5" id="mealCategories"></div>
+        </div>
+    </section>
+
+    <!-- ============== Area ============== -->
+    <section class="p-5 d-none" id="area">
+        <div
+            class="position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2" id="areaLoader">
+            <span class="loader"></span>
+        </div>
+
+        <div class="container">
+            <div class="row g-4" id="mealArea"></div>
+        </div>
+    </section>
+
+    <!-- ============== Ingredient ============== -->
+    <section class="p-5 d-none" id="ingredient">
+        <div
+            class="position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2" id="ingredientLoader">
+            <span class="loader"></span>
+        </div>
+
+        <div class="container">
+            <div class="row g-4" id="mealIngredient"></div>
+        </div>
+    </section>
+
+    <!-- ============== Contact Us ============== -->
+    <section class="py-5 d-none vh-100 justify-content-center align-items-center" id="contactUs">
+        <div class="container text-center">
+            <div class="row g-4 justify-content-center w-75 mx-auto">
+                <div class="col-md-6">
+                    <input class="form-control" type="text" id="nameInput" placeholder="Enter Your Name" maxlength="30">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Special characters and numbers not allowed
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control" type="email" id="emailInput" placeholder="Enter Your Email">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Email not valid *exemple@yyy.zzz</div>
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control" type="number" id="phoneInput" placeholder="Enter Your Phone"
+                        maxlength="11">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Enter valid Phone Number</div>
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control" type="number" id="ageInput" placeholder="Enter Your Age" maxlength="2">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Enter valid age</div>
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control" type="password" id="passwordInput" placeholder="Enter Your Password">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Enter valid password *Minimum eight
+                        characters, at least one letter, one number and at least a special character:*</div>
+                </div>
+
+                <div class="col-md-6">
+                    <input class="form-control" type="password" id="repasswordInput" placeholder="Repassword">
+                    <div class="alert alert-danger py-2 mt-2 mb-0 d-none">Enter valid repassword</div>
+                </div>
+            </div>
+
+            <button id="btnSubmit" class="btn btn-outline-danger mt-4 disabled">Submit</button>
+        </div>
+    </section>
+
+    <!-- ============== Meal Details ============= -->
+    <section class="p-5 d-none" id="details">
+        <div
+            class="position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-2" id="detailsLoader">
+            <span class="loader"></span>
+        </div>
+
+        <div class="container text-white">
+            <div class="row g-4" id="mealDetails">
+                <div class="col-md-4">
+                    <div class="image">
+                        <img class="w-100 rounded-4" src="" alt="">
+                        <h2></h2>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <h2>Instructions</h2>
+                    <p></p>
+
+                    <h3><span class="fw-bolder">Area : </span>-</h3>
+                    <h3><span class="fw-bolder">Category : </span>-</h3>
+                    <h3><span class="fw-bolder">Recipes : </span></h3>
+
+                    <ul class="list-recipes d-flex gap-3 flex-wrap my-3 ms-2"></ul>
+
+                    <h3 class="fw-bolder">Tags:</h3>
+
+                    <ul class="list-unstyled d-flex gap-3 flex-wrap my-3 ms-2"></ul>
+
+                    <button class="btn btn-success"><a href="" target="_blank">Source</a></button>
+                    <button class="btn btn-danger"><a href="" target="_blank">Youtube</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <!-- JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
